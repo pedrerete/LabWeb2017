@@ -1,0 +1,82 @@
+<center>
+<%= link_to 'Agregar Producto', new_product_path %>
+</center>
+
+<table>
+	<% @products.each do |product| %>
+		<tr>
+			<td><%= product.productName %></td>
+			<td><%= product.productDescription %></td>
+			<td><%= link_to 'Show', product_path(product) %></td>
+			<td><%= link_to 'Edit', edit_product_path(product) %></td>
+			<td><%= link_to 'Destroy', product_path(product), method: :delete, data: { confirm: 'Are you sure?'}%></td>
+		</tr>
+	<% end %>
+</table>
+
+
+<!-- Page Features -->
+
+<!-- Title -->
+<div class="row">
+    <div class="col-lg-12">
+        <h2>Catálogo</h2>
+    </div>
+</div>
+
+<div class="row text-center">
+
+    <div class="col-md-3 col-sm-6 hero-feature">
+        <div class="thumbnail">
+            <img src="http://placehold.it/800x500" alt="">
+            <div class="caption">
+                <h3>Feature Label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <p>
+                    <a href="#" class="btn btn-primary">Comprar</a> 
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 hero-feature">
+        <div class="thumbnail">
+            <img src="http://placehold.it/800x500" alt="">
+            <div class="caption">
+                <h3>Feature Label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <p>
+                    <a href="#" class="btn btn-primary">Comprar</a> 
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 hero-feature">
+        <div class="thumbnail">
+            <img src="http://placehold.it/800x500" alt="">
+            <div class="caption">
+                <h3>Feature Label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <p>
+                    <a href="#" class="btn btn-primary">Comprar</a> 
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 hero-feature">
+        <div class="thumbnail">
+            <img src="http://placehold.it/800x500" alt="">
+            <div class="caption">
+                <h3>Feature Label</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <p>
+                    <a href="#" class="btn btn-primary">Comprar</a> 
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.row -->

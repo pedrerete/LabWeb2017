@@ -19,7 +19,11 @@
 
 .footer{
   background-color: #f2f2f2;
+  padding: 10px 0;
   }
+.footerText{
+  margin: 0;
+}
 #wrap {
    width:1000px;
    margin:0 auto;

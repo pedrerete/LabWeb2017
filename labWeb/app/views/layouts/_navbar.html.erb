@@ -32,16 +32,15 @@
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-		 <li> <%= link_to 'Quienes Somos', { :controller => :welcome, :action => :index }, { :class=>('navbar-toggle')}%> </li> 
-		 <li> <%= link_to 'Noticias', { :controller => :news, :action => :index }, { :class=>('navbar-toggle')}%></li>
-		 <li> <%= link_to 'Eventos', { :controller => :events, :action => :index }, { :class=>('navbar-toggle')}%></li>
-		 <li> <%= link_to 'Sucursales', { :controller => :stores, :action => :index }, { :class=>('navbar-toggle')}%></li>
-		 <li> <%= link_to 'Catalogo', { :controller => :products, :action => :index }, { :class=>('navbar-toggle')}%></li>
-		 <li> <%= link_to 'Iniciar sesion', { :controller => :login, :action => :index }, { :class=>('navbar-toggle')}%></li>
-     
+  		 <li> <%= link_to 'Quienes Somos', { :controller => :welcome, :action => :index }, { :class=>('')}%> </li> 
+  		 <li> <%= link_to 'Noticias', { :controller => :news, :action => :index }, { :class=>('')}%></li>
+  		 <li> <%= link_to 'Eventos', { :controller => :events, :action => :index }, { :class=>('')}%></li>
+  		 <li> <%= link_to 'Sucursales', { :controller => :stores, :action => :index }, { :class=>('')}%></li>
+  		 <li> <%= link_to 'Catalogo', { :controller => :products, :action => :index }, { :class=>('')}%></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Iniciar Sesion</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> </a></li>
+        <li> <%= link_to 'Iniciar sesion', { :controller => :login, :action => :index }, { :class=>('')}%></li>  
         <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
       </ul>
     </div>

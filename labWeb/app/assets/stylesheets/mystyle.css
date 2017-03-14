@@ -3,7 +3,13 @@
     body {
     padding: 60px 0px;
     background-color: rgb(220, 220, 220);
+    padding-top: 0px;
   }
+
+    .main-img{
+      height: 250px;
+      margin-bottom: 2%;
+    }
     
     .event-list {
     list-style: none;

@@ -40,9 +40,6 @@
       margin-bottom: 50px;
       border-radius: 0;
 }
-.abajo{
-    padding-top: 30px;
-}
 
 .figures{
   display: flex;
@@ -81,4 +78,11 @@ header {
 body { 
   font-family: 'Open Sans', sans-serif;
   color: #666;
+}
+
+.links {
+  float: left;
+  padding-left: 85%;
+  padding-top: 0;
+  padding-bottom: 0%;
 }

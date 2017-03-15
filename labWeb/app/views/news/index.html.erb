@@ -1,5 +1,5 @@
 <center>
-<h1>Noticias Rogelio Bicicletas</h1>
+<h1>Noticias</h1>
 </center>
 
 <center>
@@ -8,35 +8,37 @@
 <hr>
 
 <div class="container">
-  <div class="row">
-    <% @news.each do |news| %>
-    <div class="col-md-3">
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
-    <div class="container">
-      <div class="well">
+  <% @news.each do |news| %>
+    <div class="row">
+      <div class="col-md-3">
+      <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css"/>
+      <div class="container">
+        <div class="well">
           <div class="media">
             <a class="pull-left" href="#">
-            <img class="media-object" src="http://placehold.it/150x150">
+              <img class="media-object" src="http://placehold.it/150x150">
+            </a>
+            <div class="media-body">
+              <h4 class="media-heading"> <%= news.title %> </h4>
+                <p class="text-right"> <%= news.author %> </p>
+                <p> <%= news.body %> </p>
+            </div>
+          </div>
+        </div>  
+        <div class="links">
+          <a href="">
+              <%= link_to 'Show', news_path(news) %>
           </a>
-          <div class="media-body">
-            <h4 class="media-heading"> <%= news.title %> </h4>
-              <p class="text-right"> <%= news.author %> </p>
-              <p> <%= news.body %> </p>
-           </div>
+          <a href="">
+              <%= link_to 'Edit', edit_news_path(news) %>
+          </a>
+          <a href="">
+              <%= link_to 'Destroy', news_path(news), method: :delete, data: { confirm: 'Are you sure?'}%>
+          </a>
         </div>
-    </div>  
-      <div class="links">
-        <a href="">
-            <%= link_to 'Show', news_path(news) %>
-        </a>
-        <a href="">
-            <%= link_to 'Edit', edit_news_path(news) %>
-        </a>
-        <a href="">
-            <%= link_to 'Destroy', news_path(news), method: :delete, data: { confirm: 'Are you sure?'}%>
-        </a>
       </div>
+      <hr>
     </div>
-    <% end %>
   </div>
+  <% end %>
 </div>

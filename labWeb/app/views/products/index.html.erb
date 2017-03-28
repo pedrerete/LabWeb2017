@@ -21,7 +21,8 @@
                 <h3><%= product.productName %></h3>
                 <p><%= product.productDescription %></p>
                 <p>
-                    <a href="#" class="btn btn-primary">Comprar</a> 
+                    <span class="btn btn-primary">
+                    <%= link_to 'Comprar', controller: 'cart' %> </span> 
                 </p>
                 <a href="">
                     <%= link_to 'Show', product_path(product) %>

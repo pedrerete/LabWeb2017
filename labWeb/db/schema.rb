@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170314035115) do
+ActiveRecord::Schema.define(version: 20170328080715) do
+
+  create_table "carts", force: :cascade do |t|
+    t.string   "customerName"
+    t.string   "customerEMail"
+    t.integer  "customerPhone"
+    t.text     "customerComments"
+    t.text     "customerOrder"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string   "categoryName"

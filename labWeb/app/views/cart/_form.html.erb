@@ -1,0 +1,45 @@
+<%= form_for @cart do |f| %>
+
+	<% if @cart.errors.any? %>
+	    <div id="error_explanation">
+	      <h2>
+	        <%= pluralize(@cart.errors.count, "error") %> prohibited this cart from being saved:
+	      </h2>
+	      <ul>
+	        <% @cart.errors.full_messages.each do |msg| %>
+	          <li><%= msg %></li>
+	        <% end %>
+	      </ul>
+	    </div>
+    <% end %>
+	
+
+	<p>
+		<%= f.label :Nombre %><br>
+		<%= f.text_field :customerName %>
+	</p>
+
+	<p>
+		<%= f.label :Email %><br>
+		<%= f.text_field :customerEMail %>
+	</p>
+
+	<p>
+		<%= f.label :Teléfono %><br>
+		<%= f.number_field :customerPhone %>
+	</p>
+
+	<p>
+		<%= f.label :Comentarios %><br>
+		<%= f.text_area :customerComments %>
+	</p>
+
+	<p>
+		<%= f.label :Pedido %><br>
+		<%= f.text_area :customerOrder %>
+	</p>
+	
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>

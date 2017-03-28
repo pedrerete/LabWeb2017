@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   get 'cart/new'
 
-  get 'cart/create'
+  get 'cart/index'
 
   get 'controllername/new'
 

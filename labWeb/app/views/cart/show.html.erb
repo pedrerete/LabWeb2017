@@ -1,0 +1,35 @@
+<p>
+	<strong>Nombre:</strong>
+	<%= @cart.customerName %>
+</p>
+
+<p>
+	<strong>E-mail:</strong>
+	<%= @cart.customerEmail %>
+</p>
+
+<p>
+	<strong>Teléfono:</strong>
+	<%= @cart.customerPhone %>
+</p>
+
+<p>
+	<strong>Comentarios:</strong>
+	<%= @cart.customerComments %>
+</p>
+
+<p>
+	<strong>Pedido:</strong>
+	<%= @cart.customerOrder %>
+</p>
+
+<p>
+	<strong>Código de reserva:</strong>
+	<%= rand(100..999) %>
+</p>
+
+<p>RECUERDE QUE TIENE 72 HORAS PARA HACER SU PEDIDO<br>
+   DE LO CONTRARIO SU RESERVACIÓN SE CANCELARÁ   
+</p>
+
+<%= link_to 'Aceptar', products_path %>

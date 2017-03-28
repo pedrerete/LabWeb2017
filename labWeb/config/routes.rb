@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'cart/new'
+
+  get 'cart/create'
+
+  get 'controllername/new'
+
+  get 'controllername/create'
+
   get 'login/index'
 
   resources :products 

@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'cart/new'
-
-  get 'cart/index'
+ 
 
   get 'controllername/new'
 
@@ -13,6 +11,7 @@ Rails.application.routes.draw do
   resources :stores
   resources :events
   resources :news
+  resources :cart
 
   root 'welcome#index'
 

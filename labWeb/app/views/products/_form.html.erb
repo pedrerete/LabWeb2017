@@ -27,9 +27,11 @@
 		<%= f.number_field :price %>
 	</p>
 
+	<%= image_tag @product.image.url if @product.image_stored? %>
+
 	<p>
-		<%= f.label :Photo %><br>
-		<%= f.number_field :photoLocation %>
+		<%= f.label :image %><br>
+		<%= f.file_field :image %>
 	</p>
 
 	<p>

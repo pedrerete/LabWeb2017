@@ -2,9 +2,8 @@
 	<h1 align="center">
 		<%= @product.productName %>
 	</h1><br>
-	<div class="wrapper">
-
-		<div class="wrapper-left">
+	<div class="wrapper-products">
+		<div class="wrapper-left-products">
 			<p align="justify">
 				<strong>Descripción:</strong>
 				<%= @product.productDescription %>
@@ -15,7 +14,7 @@
 				$<%= @product.price %> MXN
 			</p>
 		</div>
-		<div class="wrapper-right" align="center">
+		<div class="wrapper-right-products" align="center">
 			<div class="wrapper-img" align="center">
 			<%= image_tag @product.image.url, :size => "250x250"%>
 			</div>

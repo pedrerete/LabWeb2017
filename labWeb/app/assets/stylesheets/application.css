@@ -99,9 +99,9 @@ header {
   padding-bottom: 0%;
 }
 
-.renderFormDiv{
+.renderFormDiv {
     margin: 0 auto;
-  }
+}
 
 .jumbotron {
       margin-bottom: 0;
@@ -115,4 +115,22 @@ header {
 footer {
       background-color: #f2f2f2;
       padding: 25px;
+}
+
+.wrapper {
+    width: 700px;
+    overflow: hidden;
+}
+.wrapper-left {
+    width: 250px;
+    float: left;
+}
+.wrapper-right {
+    width: 450px; 
+    overflow: hidden;}
+
+.wrapper-img {  
+  border: 1px solid black;
+  width: 80%;
+
 }

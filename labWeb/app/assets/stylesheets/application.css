@@ -24,6 +24,8 @@
   margin: 0;
   padding-bottom: 6rem;
   min-height: 100%;
+  color: #666;
+  font-family: 'Open Sans', sans-serif;
  }
 .footer{
   background-color: #f2f2f2;
@@ -89,14 +91,28 @@ header {
   float: left;
 }
 
-body { 
-  font-family: 'Open Sans', sans-serif;
-  color: #666;
-}
 
 .links {
   float: left;
   padding-left: 85%;
   padding-top: 0;
   padding-bottom: 0%;
+}
+
+.renderFormDiv{
+    margin: 0 auto;
+  }
+
+.jumbotron {
+      margin-bottom: 0;
+}
+
+.navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+}
+
+footer {
+      background-color: #f2f2f2;
+      padding: 25px;
 }

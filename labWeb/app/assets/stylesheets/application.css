@@ -117,20 +117,33 @@ footer {
       padding: 25px;
 }
 
-.wrapper {
+.wrapper-products {
     width: 700px;
     overflow: hidden;
 }
-.wrapper-left {
+
+.wrapper-news {
+    width: 900px;
+    overflow: hidden;
+}
+
+.wrapper-left-products {
     width: 250px;
     float: left;
 }
-.wrapper-right {
+.wrapper-right-products {
     width: 450px; 
-    overflow: hidden;}
-
+    overflow: hidden;
+}
+.wrapper-left-news {
+    width: 550px;
+    float: left;
+}
+.wrapper-right-news {
+    width: 350px; 
+    overflow: hidden;
+}
 .wrapper-img {  
-  border: 1px solid black;
   width: 80%;
 
 }

@@ -1,16 +1,23 @@
-<p>
-	<strong>Titulo:</strong>
-	<%= @news.title %>
-</p>
+<center>
+	<h1 align="center">
+		<%= @news.title %>
+	</h1><br>
+	<div class="wrapper-news">
+		<div class="wrapper-left-news">
+			<p align="justify">
+				<%= @news.body %>
+			</p>
 
-<p>
-	<strong>Texto:</strong>
-	<%= @news.body %>
-</p>
-
-<p>
-	<strong>Autor:</strong>
-	<%= @news.author %>
-</p>
-
-<%= link_to 'Noticias', news_index_path %>
+			<p align="left">
+				<strong>Autor:</strong>
+				<%= @news.author %>
+			</p>
+		</div>
+		<div class="wrapper-right-news" align="center">
+			<div class="wrapper-img" align="center">
+			<img class="media-object" src="http://placehold.it/250x250">
+			</div>
+		</div>
+	</div>
+	<br><%= link_to 'Volver a noticias', news_index_path %>
+</center>

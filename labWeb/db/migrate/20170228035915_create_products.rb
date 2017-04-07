@@ -4,7 +4,6 @@ class CreateProducts < ActiveRecord::Migration
 
       t.string :productName
       t.text :productDescription
-      t.string :photoLocation
       t.decimal :price
       t.string :image_uid
 

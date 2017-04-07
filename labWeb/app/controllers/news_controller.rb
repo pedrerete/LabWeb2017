@@ -1,4 +1,7 @@
 class NewsController < ApplicationController
+  load_and_authorize_resource :only => [:new, :edit, :delete]
+  skip_before_action :authenticate_user!, :only => [:index, :show]
+
   def index
     @news = News.all
   end
@@ -44,6 +47,6 @@ class NewsController < ApplicationController
 
   private
     def news_params
-      params.require(:news).permit(:title, :body, :author)
+      params.require(:news).permit(:image, :title, :body, :author)
     end
 end

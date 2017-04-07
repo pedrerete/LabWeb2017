@@ -3,8 +3,9 @@ class CreateNews < ActiveRecord::Migration[5.0]
     create_table :news do |t|
       t.string :title
       t.text :body
-      t.text :author
-
+      t.string :author
+      t.string :image_uid
+      
       t.timestamps
     end
   end

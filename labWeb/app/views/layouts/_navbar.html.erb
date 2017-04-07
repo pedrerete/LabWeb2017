@@ -14,9 +14,13 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
   		 <li> <%= link_to 'Quiénes Somos', { :controller => "/welcome", :action => :index }, { :class=>('')}%> </li> 
+
   		 <li> <%= link_to 'Noticias', { :controller => "/news", :action => :index }, { :class=>('')}%></li>
+
   		 <li> <%= link_to 'Eventos', { :controller => "/events", :action => :index }, { :class=>('')}%></li>
+
   		 <li> <%= link_to 'Sucursales', { :controller => "/stores", :action => :index }, { :class=>('')}%></li>
+       
   		 <li> <%= link_to 'Catálogo', { :controller => "/products", :action => :index }, { :class=>('')}%></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">

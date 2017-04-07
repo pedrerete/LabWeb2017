@@ -1,23 +1,23 @@
 <center>
 	<h1 align="center">
-		<%= @news.title %>
+		<%= @event.title %>
 	</h1><br>
 	<div class="wrapper-news">
 		<div class="wrapper-left-news">
 			<p align="justify">
-				<%= @news.body %>
+				<%= @event.body %>
 			</p>
 
 			<p align="left">
-				<strong>Autor:</strong>
-				<%= @news.author %>
+				<strong>Fecha:</strong>
+				<%= @event.date %>
 			</p>
 		</div>
 		<div class="wrapper-right-news" align="center">
 			<div class="wrapper-img" align="center">
-			<%= image_tag @news.image.url, :size => "250x250"%>
+			<%= image_tag @event.image.url, :size => "250x250"%>
 			</div>
 		</div>
 	</div>
-	<br><%= link_to 'Volver a noticias', news_index_path %>
+	<br><%= link_to 'Volver a eventos', events_path %>
 </center>

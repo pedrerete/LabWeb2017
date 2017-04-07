@@ -1,11 +1,11 @@
-<%= form_for @news do |f| %>
-	<% if @news.errors.any? %>
+<%= form_for @event do |f| %>
+	<% if @event.errors.any? %>
 	    <div id="error_explanation">
 	      <h2>
-	        <%= pluralize(@news.errors.count, "error") %> prohibited this news from being saved:
+	        <%= pluralize(@event.errors.count, "error") %> prohibited this news from being saved:
 	      </h2>
 	      <ul>
-	        <% @news.errors.full_messages.each do |msg| %>
+	        <% @event.errors.full_messages.each do |msg| %>
 	          <li><%= msg %></li>
 	        <% end %>
 	      </ul>
@@ -23,11 +23,11 @@
 	</p>
 
 	<p>
-		<%= f.label :Autor %><br>
-		<%= f.text_field :author %>
+		<%= f.label :Fecha %><br>
+		<%= f.date_field :date %>
 	</p>
 
-	<%= image_tag @news.image.url if @news.image_stored? %>
+	<%= image_tag @event.image.url if @event.image_stored? %>
 	
 	<p>
 		<%= f.label :image %><br>

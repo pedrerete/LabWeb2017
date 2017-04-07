@@ -2,10 +2,19 @@
 <h1>Noticias</h1>
 </center>
 
-<center>
-<%= link_to 'Agregar noticia', new_news_path %>
-</center>
-<hr>
+<% if current_user && current_user.superadmin_role? %>
+  <center>
+  <%= link_to 'Agregar noticia', new_news_path %>
+  </center>
+  <hr>
+<% end %>
+
+<% if @news.size == 0 %>
+  <center>
+    <p>Nada por aquí</p>
+  </center>
+  <hr>
+<% end %>
 
 <div class="container">
   <% @news.each do |news| %>
@@ -15,7 +24,7 @@
         <div class="well">
           <div class="media">
             <a class="pull-left" href="#">
-              <img class="media-object" src="http://placehold.it/150x150">
+              <%= image_tag news.image.url, :size => "150x150"%>
             </a>
             <div class="media-body">
               <h4 class="media-heading"> <%= news.title %> </h4>
@@ -28,12 +37,14 @@
           <a href="">
               <%= link_to 'Show', news_path(news) %>
           </a>
-          <a href="">
-              <%= link_to 'Edit', edit_news_path(news) %>
-          </a>
-          <a href="">
-              <%= link_to 'Destroy', news_path(news), method: :delete, data: { confirm: 'Are you sure?'}%>
-          </a>
+          <% if current_user && current_user.superadmin_role? %>
+            <a href="">
+                <%= link_to 'Edit', edit_news_path(news) %>
+            </a>
+            <a href="">
+                <%= link_to 'Destroy', news_path(news), method: :delete, data: { confirm: 'Are you sure?'}%>
+            </a>
+          <% end %>
         </div>
       </div>
       <hr>

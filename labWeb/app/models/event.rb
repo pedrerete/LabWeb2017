@@ -1,4 +1,4 @@
-class News < ApplicationRecord
+class Event < ApplicationRecord
 	dragonfly_accessor :image
 
 	#image validations

@@ -1,6 +1,16 @@
-<center>
-<%= link_to 'Agregar Producto', new_product_path %>
-</center>
+<% if current_user && (current_user.superadmin_role? || current_user.supervisor_role?) %>
+    <center>
+    <%= link_to 'Agregar Producto', new_product_path %>
+    </center>
+<% end %>
+
+<% if @news.size == 0 %>
+  <center>
+    <p>Nada por aquí</p>
+  </center>
+  <hr>
+<% end %>
+
 
 <!-- Page Features -->
 
@@ -24,15 +34,17 @@
                     <span class="btn btn-primary">
                     <%= link_to 'Comprar', controller: 'cart' %> </span> 
                 </p>
-                <a href="">
-                    <%= link_to 'Show', product_path(product) %>
-                </a>
-                <a href="">
-                    <%= link_to 'Edit', edit_product_path(product) %>
-                </a>
-                <a href="">
-                    <%= link_to 'Destroy', product_path(product), method: :delete, data: { confirm: 'Are you sure?'}%>
-                </a>
+                    <a href="">
+                        <%= link_to 'Show', product_path(product) %>
+                    </a>
+                <% if current_user &&  (current_user.superadmin_role? || current_user.supervisor_role?) %>
+                    <a href="">
+                        <%= link_to 'Edit', edit_product_path(product) %>
+                    </a>
+                    <a href="">
+                        <%= link_to 'Destroy', product_path(product), method: :delete, data: { confirm: 'Are you sure?'}%>
+                    </a>
+                <% end %>
             </div>
         </div>
     </div>

@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
-  load_and_authorize_resource :only => [:new, :edit]
+  load_and_authorize_resource :only => [:new, :edit, :delete]
+  skip_before_action :authenticate_user!, :only => [:index, :show]
 
   def index
     @products = Product.all
@@ -46,6 +47,6 @@ class ProductsController < ApplicationController
 
   private
     def product_params
-      params.require(:product).permit(:image, :productName, :productDescription, :photoLocation, :price)
+      params.require(:product).permit(:image, :productName, :productDescription, :price)
     end
 end

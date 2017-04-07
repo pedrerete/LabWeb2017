@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  load_and_authorize_resource :only => [:new, :edit]
+
   def index
     @products = Product.all
   end

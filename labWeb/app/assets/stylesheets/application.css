@@ -12,7 +12,9 @@
  *
  *= require_tree .
  *= require_self
+ *= requite toastr
  */
+
  html {
   height: 100%;
   box-sizing: border-box;

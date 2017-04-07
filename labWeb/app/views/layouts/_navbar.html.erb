@@ -13,17 +13,35 @@
   <div class="container-fluid">
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-  		 <li> <%= link_to 'Quiénes Somos', { :controller => :welcome, :action => :index }, { :class=>('')}%> </li> 
-  		 <li> <%= link_to 'Noticias', { :controller => :news, :action => :index }, { :class=>('')}%></li>
-  		 <li> <%= link_to 'Eventos', { :controller => :events, :action => :index }, { :class=>('')}%></li>
-  		 <li> <%= link_to 'Sucursales', { :controller => :stores, :action => :index }, { :class=>('')}%></li>
-  		 <li> <%= link_to 'Catálogo', { :controller => :products, :action => :index }, { :class=>('')}%></li>
+  		 <li> <%= link_to 'Quiénes Somos', { :controller => "/welcome", :action => :index }, { :class=>('')}%> </li> 
+  		 <li> <%= link_to 'Noticias', { :controller => "/news", :action => :index }, { :class=>('')}%></li>
+  		 <li> <%= link_to 'Eventos', { :controller => "/events", :action => :index }, { :class=>('')}%></li>
+  		 <li> <%= link_to 'Sucursales', { :controller => "/stores", :action => :index }, { :class=>('')}%></li>
+  		 <li> <%= link_to 'Catálogo', { :controller => "/products", :action => :index }, { :class=>('')}%></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> </a></li>
-        <li> <%= link_to 'Iniciar sesión', { :controller => :login, :action => :index }, { :class=>('')}%></li>  
-       <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> </a></li>
-        <li> <%= link_to 'Carrito', { :controller => :cart, :action => :index }, { :class=>('')}%></li>  
+
+      <% if current_user.nil? %>
+        <%= link_to new_user_session_path, class: 'login-button' do %>Iniciar sesión<% end %>
+      <% else %>
+        <%= link_to new_product_path, class: 'login-button' do %>Menu<% end %>
+      <% end %>
+
+      <% if user_signed_in? %>
+ 
+        <%= link_to('Edit registration', edit_user_registration_path) %>
+        <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+
+      <% else %>
+
+        <%= link_to('Register', new_user_registration_path)  %>
+        <%= link_to('Login', new_user_session_path)  %>  
+
+      <% end %>
+
+      <li><a href="#"><span class="glyphicon glyphicon-shopping-cart"></span> </a></li>
+      <li> <%= link_to 'Carrito', { :controller => "/cart", :action => :index }, { :class=>('')}%></li>  
       </ul>
     </div>
   </div>

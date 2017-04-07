@@ -20,6 +20,10 @@ class CartController < ApplicationController
     end
   end
 
+  def products
+    render :partial => '/products/' 
+  end
+
   private
     def cart_params
       params.require(:order).permit(:customerName, :customerEmail, :customerPhone, :customerComments, :customerOrder)

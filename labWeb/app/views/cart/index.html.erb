@@ -2,6 +2,71 @@
 <h1>Carrito</h1>
 </center><br>
 
+<script data-require="jquery" data-semver="2.1.4" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<script>$(document).on("input paste keyup", ".product_qty", function( event ) {         
+        var product_quantity = 0;
+        var product_price = 0;
+
+        var sub_total = 0;
+        var grand_total = 0
+
+        product_quantity = $(this).val();
+        product_price = $(this).parent().prev().html();
+
+        sub_total = product_price * product_quantity;
+
+        $(this).parent().next().html(sub_total);
+
+
+        $('.product_qty' ).each( function( k, v ) {
+            product_quantity = parseInt ( $(this).val() ) ? parseInt ( $(this).val() ) : 0;
+            product_price = parseFloat($(this).parent().prev().html())?parseFloat($(this).parent().prev().html()):0;
+
+            console.log(product_quantity);
+            console.log(product_price);            
+
+            sub_total = parseFloat ( product_price * product_quantity );
+
+            console.log(sub_total);
+
+            grand_total += sub_total;
+
+        });     
+        $("#total_amount").html("$" + grand_total);       
+      
+    });
+$( document ).ready(function() {
+  var product_quantity = 0;
+        var product_price = 0;
+
+        var sub_total = 0;
+        var grand_total = 0
+
+        product_quantity = $(this).val();
+        product_price = $(this).parent().prev().html();
+
+        sub_total = product_price * product_quantity;
+
+        $(this).parent().next().html(sub_total);
+
+
+        $('.product_qty' ).each( function( k, v ) {
+            product_quantity = parseInt ( $(this).val() ) ? parseInt ( $(this).val() ) : 0;
+            product_price = parseFloat($(this).parent().prev().html())?parseFloat($(this).parent().prev().html()):0;
+
+            console.log(product_quantity);
+            console.log(product_price);            
+
+            sub_total = parseFloat ( product_price * product_quantity );
+
+            console.log(sub_total);
+
+            grand_total += sub_total;
+
+        });     
+        $("#total_amount").html("$" + grand_total);
+});</script>
 
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <div class="container">
@@ -27,27 +92,24 @@
                   </div>
                 </div>
               </td>
-              <td data-th="Precio"><p><%= product.price %></p></td>
+              <td class="product_price"><%= product.price %></td> 
               <td data-th="Cantidad">
-                <input type="number" class="form-control text-center" value="1">
+                <input type="number" name="qty" class="product_qty form-control text-center" value="1">
               </td>
-              <td data-th="Subtotal" class="text-center">1.99</td>
+              <td class="amount_sub_total text-center"><%= product.price %></td> 
               <td class="actions" data-th="">
                 <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button>                
               </td>
             </tr>
+      <% end %> 
           </tbody>
           <tfoot>
-            <tr class="visible-xs">
-              <td class="text-center"><strong>Total 1.99</strong></td>
-            </tr>
-          <% end %>
             <tr>
-              <td><a href="#" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continuar comprando</a></td>
+              <td><%= link_to '< Continuar comprando', @product, {:style=>'color:#FFFFFF;', :class => "btn btn-success btn-blockfa"} %> </td>
               <td colspan="2" class="hidden-xs"></td>
-              <td class="hidden-xs text-center"><strong>Total $1.99</strong></td>
-              <td><a href="#" class="btn btn-success btn-block"> Confirmar pedido
-                  <%= link_to 'Confirmar pedido', new_cart_path %> <i class="fa fa-angle-right"></i></a></td>
+              <td id="total_amount" class="hidden-xs text-center">1</td>
+              <td>
+                  <%= link_to 'Confirmar pedido >', new_cart_path, {:style=>'color:#FFFFFF;', :class => "btn btn-success btn-blockfa"} %> 
             </tr>
           </tfoot>
         </table>

@@ -2,6 +2,7 @@ class OrderItemsController < ApplicationController
   def create
   	@order = current_order
   	@order_item = @order.order_items.new(order_item_params)
+    @order.user = current_user
   	@order.save
   	session[:order_id] = @order.id
   end
@@ -18,6 +19,7 @@ class OrderItemsController < ApplicationController
     @order_item = @order.order_items.find(params[:id])
     @order_item.destroy
     @order_items = @order.order_items
+    @order.save
   end
   
 private

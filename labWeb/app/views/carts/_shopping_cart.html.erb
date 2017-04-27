@@ -12,7 +12,18 @@
     No tienes productos en esta orden, Porfavor <%= link_to "regresa", root_path %> para comenzar a apartar.
   </p>
 <% else %>
-  <% @order_items.each do |order_item| %>
-    <%= render 'carts/cart_row', product: order_item.product, order_item: order_item, show_total: true %>
-  <% end %>
+  <div class="container">
+    <% @order_items.each do |order_item| %>
+      <%= render 'carts/cart_row', product: order_item.product, order_item: order_item, show_total: true %>
+    <% end %>
+    <div>
+      <p>
+        Total: <%= number_to_currency current_order.subtotal%>
+      </p> 
+      
+    </div>
+  </div>
+  
+
+
 <% end %>

@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
  
-  get 'order_items/create'
+  get 'order/index'
 
-  get 'order_items/update'
+  get 'order/show'
 
-  get 'order_items/destroy'
+  get 'order/complete'
+
+
 
   get 'carts/show'
 

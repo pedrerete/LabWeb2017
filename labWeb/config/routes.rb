@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
  
+  get 'order_items/create'
+
+  get 'order_items/update'
+
+  get 'order_items/destroy'
+
+  get 'carts/show'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'controllername/new'
 
@@ -11,9 +19,11 @@ Rails.application.routes.draw do
   resources :stores
   resources :events
   resources :news
-  resources :cart
 
-  root 'welcome#index'
+  resource :cart, only: [:show]
+  resources :order_items, only: [:create, :update, :destroy]
+
+  root 'products#index'
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',

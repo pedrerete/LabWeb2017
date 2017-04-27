@@ -6,7 +6,11 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
        <li><%= image_tag("rogerBikes.png", :alt => "Logo", :class => "navimg") %></li>
-  		 <li class="liNav"> <%= link_to 'Quiénes Somos', { :controller => "/welcome", :action => :index }, { :class=>('')}%> </li> 
+
+       <!--
+  		 <li class="liNav"> <%= link_to 'Quiénes Somos', { :controller => "/products", :action => :index }, { :class=>('')}%> </li> -->
+
+       <li class="liNav"> <%= link_to 'Catálogo', { :controller => "/products", :action => :index }, { :class=>('')}%></li>
 
   		 <li class="liNav"> <%= link_to 'Noticias', { :controller => "/news", :action => :index }, { :class=>('')}%></li>
 
@@ -14,30 +18,41 @@
 
   		 <li class="liNav"> <%= link_to 'Sucursales', { :controller => "/stores", :action => :index }, { :class=>('')}%></li>
        
-  		 <li class="liNav"> <%= link_to 'Catálogo', { :controller => "/products", :action => :index }, { :class=>('')}%></li>
+  		 
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="liNav"><a href="#"><span class="glyphicon glyphicon-user"></span> </a></li>
 
-      <% if current_user.nil? %>
-        <%= link_to new_user_session_path, class: 'login-button' do %>Iniciar sesión<% end %>
-      <% else %>
-        <%= link_to new_product_path, class: 'login-button' do %>Menu<% end %>
-      <% end %>
+      <!--
+        <li class="liNav"><a href="#"><span class="glyphicon glyphicon-user"></span> </a></li>
+      
+      -->
 
       <% if user_signed_in? %>
  
-        <%= link_to('Edit registration', edit_user_registration_path) %>
-        <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
+          <li class="liNav cart-text"><%= render 'layouts/cart_text' %></li>    
+
+          <!--<li class="liNa">
+            <%= link_to('Edit registration', edit_user_registration_path) %>
+          </li>-->
+        
+          <li class="liNa">
+            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>  
+          </li>    
+
+          
 
       <% else %>
 
-        <%= link_to('Register', new_user_registration_path)  %>
-        <%= link_to('Login', new_user_session_path)  %>  
+        
+          <li class="liNa">
+            <%= link_to('Registro', new_user_registration_path)  %>
+          </li>
+        
+          <li class="liNa">
+            <%= link_to('Iniciar sesión', new_user_session_path)  %>
+          </li>  
 
       <% end %>
-
-      <li class="liNav"> <%= link_to image_tag('carrito2.png'), { :controller => "/cart", :action => :index }, { :class=>('')}%></li>  
       </ul>
     </div>
   </div>

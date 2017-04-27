@@ -4,7 +4,7 @@
     </center>
 <% end %>
 
-<% if @news.size == 0 %>
+<% if @products.size == 0 %>
   <center>
     <p>Nada por aquí</p>
   </center>
@@ -24,30 +24,33 @@
 <div class="row text-center">
 
     <% @products.each do |product| %>
-    <div class="col-md-3 col-sm-6 hero-feature">
-        <div class="thumbnail">
-            <%= image_tag product.image.url, :size => "300x300"%>
-            <div class="caption">
-                <h3><%= product.productName %></h3>
-                <p><%= product.productDescription %></p>
-                <p>
-                    <span class="btn btn-primary">
-                    <%= link_to 'Comprar', controller: 'cart' %> </span> 
-                </p>
-                    <a href="">
-                        <%= link_to 'Show', product_path(product) %>
-                    </a>
-                <% if current_user &&  (current_user.superadmin_role? || current_user.supervisor_role?) %>
-                    <a href="">
-                        <%= link_to 'Edit', edit_product_path(product) %>
-                    </a>
-                    <a href="">
-                        <%= link_to 'Destroy', product_path(product), method: :delete, data: { confirm: 'Are you sure?'}%>
-                    </a>
-                <% end %>
+        <%= form_for @order_item, remote: true do |f| %>
+
+        <div class="col-md-3 col-sm-6 hero-feature">
+            <div class="thumbnail">
+                <%= image_tag product.image.url, :size => "300x300"%>
+                <div class="caption">
+                    <h3><%= product.productName %></h3>
+                    <p><%= product.productDescription %></p>
+                    <div class="input-group-btn">
+                        <%= f.hidden_field :product_id, value: product.id %>
+                        <%= f.submit "Add to Cart", class: "btn btn-primary" %>
+                      </div>
+                        <a href="">
+                            <%= link_to 'Show', product_path(product) %>
+                        </a>
+                    <% if current_user &&  (current_user.superadmin_role? || current_user.supervisor_role?) %>
+                        <a href="">
+                            <%= link_to 'Edit', edit_product_path(product) %>
+                        </a>
+                        <a href="">
+                            <%= link_to 'Destroy', product_path(product), method: :delete, data: { confirm: 'Are you sure?'}%>
+                        </a>
+                    <% end %>
+                </div>
             </div>
         </div>
-    </div>
+      <% end %>
     <% end %>
 
 </div>

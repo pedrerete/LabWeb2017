@@ -1,4 +1,7 @@
 class Product < ApplicationRecord 
+
+	has_many :order_items
+
 	dragonfly_accessor :image
 
 	#image validations
@@ -7,4 +10,5 @@ class Product < ApplicationRecord
 	validates_property :format, of: :image, in: ['jpeg', 'png', 'gif'],
 		message: "the formats allowed are: .jpeg, .png, .gif", if: :image_changed?
 
+	default_scope {where(active: true)}
 end

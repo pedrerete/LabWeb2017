@@ -1,0 +1,52 @@
+<center>
+<h1>Categorias</h1>
+</center>
+
+<% if current_user && current_user.superadmin_role? %>
+  <center>
+  <%= link_to 'Agregar categoria', new_category_path %>
+  </center>
+  <hr>
+
+
+	<% if @categories.size == 0 %>
+	  <center>
+	    <p>Nada por aquí</p>
+	  </center>
+	  <hr>
+	<% end %>
+
+	<div class="container">
+	  <% @categories.each do |category| %>
+	    <div class="row">
+	      <div class="col-md-3">
+	      <div class="container">
+	        <div class="well">
+	          <div class="media">
+	            <div class="media-body">
+	              <h4 class="media-heading"> <%= category.categoryName %> </h4>
+	                <p> <%= category.categoryDescription %> </p>
+	            </div>
+	          </div>
+	        </div>  
+	        <div class="links">
+	          <a href="">
+	              <%= link_to 'Mostrar', category_path(category) %>
+	          </a>
+	          <% if current_user && current_user.superadmin_role? %>
+
+	            <a href="">
+	                <%= link_to 'Editar', edit_category_path(category) %>
+	            </a>
+	            <a href="">
+	                <%= link_to 'Borrar', category_path(category), method: :delete, data: { confirm: 'Are you sure?'}%>
+	            </a>
+	          <% end %>
+	        </div>
+	      </div>
+	      <hr>
+	    </div>
+	  </div>
+	  <% end %>
+	</div>
+<% end %>

@@ -17,6 +17,10 @@
   		 <li class="liNav"> <%= link_to 'Eventos', { :controller => "/events", :action => :index }, { :class=>('')}%></li>
 
   		 <li class="liNav"> <%= link_to 'Sucursales', { :controller => "/stores", :action => :index }, { :class=>('')}%></li>
+
+      <% if current_user && current_user.superadmin_role? %>
+        <li class="liNav"> <%= link_to 'Categorias', { :controller => "/categories", :action => :index }, { :class=>('')}%></li>
+      <% end %>
        
   		 
       </ul>

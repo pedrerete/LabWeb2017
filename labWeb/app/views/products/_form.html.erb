@@ -35,6 +35,10 @@
 	</p>
 
 	<p>
+		<%= select_tag(:category,  options_from_collection_for_select(Category.all, :id, :categoryName) )%>
+	</p>
+
+	<p>
 		<%= f.submit %>
 	</p>
 <% end %>

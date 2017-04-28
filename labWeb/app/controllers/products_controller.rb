@@ -3,16 +3,27 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, :only => [:index, :show]
 
   def index
-    @products = Product.all
+    if params[:search] and params[:search] != ""
+      @products = Product.where(:category => params[:search])
+    else
+      @products = Product.all.order('created_at DESC')
+    end
+
     @order_item = current_order.order_items.new
+  end
+
+  def search
+
   end
 
   def show
     @product = Product.find(params[:id])
+    @categories = Category.all.map{|c| [ c.categoryName, c.id ] }
   end
 
   def new
     @product = Product.new
+    @categories = Category.all.map{|c| [ c.categoryName, c.id ] }
   end
 
   def edit
@@ -21,6 +32,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    @product.category = Category.find(params[:category])
 
     if @product.save
       redirect_to @product
@@ -48,6 +60,6 @@ class ProductsController < ApplicationController
 
   private
     def product_params
-      params.require(:product).permit(:image, :productName, :productDescription, :price)
+      params.require(:product).permit(:image, :productName, :productDescription, :price, :category, :search)
     end
 end

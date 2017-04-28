@@ -82,6 +82,7 @@ ActiveRecord::Schema.define(version: 20170427014659) do
     t.text     "productDescription"
     t.decimal  "price"
     t.string   "image_uid"
+    t.integer  "category_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "active"

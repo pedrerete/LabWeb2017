@@ -7,9 +7,6 @@ Rails.application.routes.draw do
   get 'order/complete'
 
 
-
-  get 'carts/show'
-
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'controllername/new'
 
@@ -21,7 +18,8 @@ Rails.application.routes.draw do
   resources :stores
   resources :events
   resources :news
-
+  resources :categories
+  
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
 

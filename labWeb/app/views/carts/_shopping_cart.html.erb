@@ -20,7 +20,10 @@
       <p>
         Total: <%= number_to_currency current_order.subtotal%>
       </p> 
-      
     </div>
+    <div>
+       <%= link_to 'Confirmar pedido >', root_path, {:style=>'color:#FFFFFF;', :class => "btn btn-success btn-blockfa"} %> 
+      <%= render 'carts/print'%>
+    </div>  
   </div>
 <% end %>

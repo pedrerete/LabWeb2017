@@ -1,52 +1,52 @@
-<center>
-<h1>Categorias</h1>
-</center>
-
-<% if current_user && current_user.superadmin_role? %>
-  <center>
-  <%= link_to 'Agregar categoria', new_category_path %>
-  </center>
-  <hr>
-
-
-	<% if @categories.size == 0 %>
+<div class="container">
+	<h1 class="add-title">Categorías</h1>
+	<hr>
+	<% if current_user && current_user.superadmin_role? %>
 	  <center>
-	    <p>Nada por aquí</p>
+	  <%= link_to 'Agregar categoría', new_category_path, :class => "linkText"  %>
 	  </center>
 	  <hr>
+
+
+		<% if @categories.size == 0 %>
+		  <center>
+		    <p>Aún no hay ninguna categoría.</p>
+		  </center>
+		  <hr>
+		<% end %>
+
+		<div class="container">
+		  <% @categories.each do |category| %>
+		    <div class="row">
+		      <div class="col-md-3">
+		      <div class="container">
+		        <div class="well">
+		          <div class="media">
+		            <div class="media-body">
+		              <h4 class="media-heading"><strong> <%= category.categoryName %></strong> </h4>
+		                <p> <%= category.categoryDescription %> </p>
+		            </div>
+		          </div>
+		        </div>  
+		        <div class="links">
+		          <a href="">
+		              <%= link_to 'Mostrar', category_path(category), :class => "linkText"  %>
+		          </a>
+		          <% if current_user && current_user.superadmin_role? %>
+
+		            <a href="">
+		                <%= link_to 'Editar', edit_category_path(category), :class => "linkText"  %>
+		            </a>
+		            <a href="">
+		                <%= link_to 'Borrar', category_path(category), :class => "linkText" , method: :delete, data: { confirm: '¿Estás seguro?'}%>
+		            </a>
+		          <% end %>
+		        </div>
+		      </div>
+		      <hr>
+		    </div>
+		  </div>
+		  <% end %>
+		</div>
 	<% end %>
-
-	<div class="container">
-	  <% @categories.each do |category| %>
-	    <div class="row">
-	      <div class="col-md-3">
-	      <div class="container">
-	        <div class="well">
-	          <div class="media">
-	            <div class="media-body">
-	              <h4 class="media-heading"> <%= category.categoryName %> </h4>
-	                <p> <%= category.categoryDescription %> </p>
-	            </div>
-	          </div>
-	        </div>  
-	        <div class="links">
-	          <a href="">
-	              <%= link_to 'Mostrar', category_path(category) %>
-	          </a>
-	          <% if current_user && current_user.superadmin_role? %>
-
-	            <a href="">
-	                <%= link_to 'Editar', edit_category_path(category) %>
-	            </a>
-	            <a href="">
-	                <%= link_to 'Borrar', category_path(category), method: :delete, data: { confirm: 'Are you sure?'}%>
-	            </a>
-	          <% end %>
-	        </div>
-	      </div>
-	      <hr>
-	    </div>
-	  </div>
-	  <% end %>
-	</div>
-<% end %>
+</div>

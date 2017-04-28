@@ -1,65 +1,69 @@
-<% if current_user && (current_user.superadmin_role? || current_user.supervisor_role?) %>
-    <center>
-    <%= link_to 'Agregar Producto', new_product_path %>
-    </center>
-<% end %>
-
-<% if @products and @products.size == 0 %>
-  <center>
-    <p>Nada por aquí</p>
-  </center>
-  <hr>
-<% end %>
-
-
+<div class="container">
 <!-- Page Features -->
 
 <!-- Title -->
-<div class="row">
-    <div class="col-lg-12" align="center">
-        <h2>Catálogo</h2> 
-    </div>
-    <div class="col-lg-12" align="center">
-        <%= form_tag(products_path, :method => "get", id: "search-form") do %>
-            <%= select_tag(:search,  options_from_collection_for_select(Category.all, :id, :categoryName), include_blank: 'todas' )%>
-            <%= submit_tag "Search" %>
-        <% end %>
-    </div>
-</div>
-<br>
-<div class="container">
-    <div class="row text-center">
-        <% @products.each do |product| %>
-            <%= form_for @order_item, remote: true do |f| %>
 
-            <div class="col-md-3 col-sm-6 hero-feature">
-                <div class="thumbnail">
-                    <%= image_tag product.image.url, :size => "300x300"%>
-                    <div class="caption">
-                        <h3><%= product.productName %> - <%= number_to_currency  product.price %></h3>
-                        <% if product.category %>
-                        <p>Categoria: <%= product.category.categoryName %></p>
-                        <% end %>
-                        <div class="input-group-btn">
-                            <%= f.hidden_field :product_id, value: product.id %>
-                            <%= f.submit "Add to Cart", class: "btn btn-primary" %>
-                          </div>
-                            <a href="">
-                                <%= link_to 'Show', product_path(product) %>
-                            </a>
-                        <% if current_user &&  (current_user.superadmin_role? || current_user.supervisor_role?) %>
-                            <a href="">
-                                <%= link_to 'Edit', edit_product_path(product) %>
-                            </a>
-                            <a href="">
-                                <%= link_to 'Destroy', product_path(product), method: :delete, data: { confirm: 'Are you sure?'}%>
-                            </a>
-                        <% end %>
+    <div class="row">
+        <div class="col-lg-12" align="center">
+            <h1 class="show-title">Catálogo</h1>
+            <hr> 
+        </div>
+        <% if current_user && (current_user.superadmin_role? || current_user.supervisor_role?) %>
+            <center>
+            <%= link_to 'Agregar Producto', new_product_path, :class => "linkText" %>
+            </center>
+        <% end %>
+
+        <% if @products and @products.size == 0 %>
+            <center>
+                <p>Aún no existen productos.</p>
+            </center>
+        <% end %>
+        <hr>
+        <div class="col-lg-12" align="center">
+            <p>Filtrar por categoría: </p>
+            <%= form_tag(products_path, :method => "get", id: "search-form") do %>
+                <%= select_tag(:search,  options_from_collection_for_select(Category.all, :id, :categoryName), include_blank: 'Todas' )%>
+                <%= submit_tag "Buscar" %>
+            <% end %>
+        </div>
+    </div>
+    <br>
+    
+    <div class="container">
+        <div class="row text-center">
+            <% @products.each do |product| %>
+                <%= form_for @order_item, remote: true do |f| %>
+
+                <div class="col-md-3 col-sm-6 hero-feature">
+                    <div class="thumbnail">
+                        <%= image_tag product.image.url, :size => "300x300"%>
+                        <div class="caption">
+                            <h3><%= product.productName %> - <%= number_to_currency  product.price %></h3>
+                            <% if product.category %>
+                            <p>Categoría: <%= product.category.categoryName %></p>
+                            <% end %>
+                            <div class="input-group-btn">
+                                <%= f.hidden_field :product_id, value: product.id %>
+                                <%= f.submit "Agregar al carrito    ", class: "btn btn-primary" %>
+                              </div>
+                                <a href="">
+                                    <%= link_to 'Mostrar ', product_path(product), :class => "linkText" %>
+                                </a>
+                            <% if current_user &&  (current_user.superadmin_role? || current_user.supervisor_role?) %>
+                                <a href="">
+                                    - <%= link_to 'Editar ', edit_product_path(product), :class => "linkText" %>
+                                </a>
+                                <a href="">
+                                    - <%= link_to 'Borrar', product_path(product), :class => "linkText", method: :delete, data: { confirm: 'Are you sure?'}%>
+                                </a>
+                            <% end %>
+                        </div>
                     </div>
                 </div>
-            </div>
-          <% end %>
-        <% end %>
+              <% end %>
+            <% end %>
+        </div>
     </div>
 </div>
-<!-- /.row -->
+    <!-- /.row -->

@@ -1,11 +1,13 @@
-<center>
-	<h1 align="center">
-		<%= @category.categoryName %>
-	</h1><br>
-	<div class="wrapper-news">
-		<div class="center">
-			<%= @category.categoryDescription %>
+<div class="container">
+	<center>
+		<h1 class="add-title">
+			<%= @category.categoryName %>
+		</h1><hr>
+		<div class="wrapper-news">
+			<div class="center">
+				<p style="font-size: 20px;" align="justify"><strong>Descripción: </strong> <%= @category.categoryDescription %></p>
+			</div>
 		</div>
-	</div>
-	<br><%= link_to 'Volver a categorias', categories_path %>
-</center>
+		<br><%= link_to 'Volver a categorías', categories_path, :class => "linkText" %>
+	</center>
+</div>

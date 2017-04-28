@@ -13,16 +13,16 @@
     <% end %>
 
 	<p>
-		<%= f.label :categoryName %><br>
+		<%= f.label :nombre_de_la_categoría %><br>
 		<%= f.text_field :categoryName %>
 	</p>
 
 	<p>
-		<%= f.label :categoryDescription %><br>
+		<%= f.label :descripción_de_la_categoría %><br>
 		<%= f.text_area :categoryDescription %>
 	</p>
-	
+	<br>
 	<p>
-		<%= f.submit %>
+		<%= f.submit "Agregar", :class => "addBtn" %>
 	</p>
 <% end %>

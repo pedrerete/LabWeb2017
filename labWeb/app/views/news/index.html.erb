@@ -1,54 +1,55 @@
-<center>
-<h1>Noticias</h1>
-</center>
-
-<% if current_user && current_user.superadmin_role? %>
-  <center>
-  <%= link_to 'Agregar noticia', new_news_path %>
-  </center>
-  <hr>
-<% end %>
-
-<% if @news.size == 0 %>
-  <center>
-    <p>Nada por aquí</p>
-  </center>
-  <hr>
-<% end %>
-
 <div class="container">
-  <% @news.each do |news| %>
-    <div class="row">
-      <div class="col-md-3">
-      <div class="container">
-        <div class="well">
-          <div class="media">
-            <a class="pull-left" href="#">
-              <%= image_tag news.image.url, :size => "150x150"%>
-            </a>
-            <div class="media-body">
-              <h4 class="media-heading"> <%= news.title %> </h4>
-                <p class="text-right"> <%= news.author %> </p>
-                <p> <%= news.body %> </p>
-            </div>
-          </div>
-        </div>  
-        <div class="links">
-          <a href="">
-              <%= link_to 'Show', news_path(news) %>
-          </a>
-          <% if current_user && current_user.superadmin_role? %>
-            <a href="">
-                <%= link_to 'Edit', edit_news_path(news) %>
-            </a>
-            <a href="">
-                <%= link_to 'Destroy', news_path(news), method: :delete, data: { confirm: 'Are you sure?'}%>
-            </a>
-          <% end %>
-        </div>
-      </div>
-      <hr>
-    </div>
-  </div>
+  <h1 class="show-title">Noticias</h1>
+  <hr>
+
+  <% if current_user && current_user.superadmin_role? %>
+    <center>
+    <%= link_to 'Agregar noticia', new_news_path, :class => "linkText" %>
+    </center>
+    <hr>
   <% end %>
+
+  <% if @news.size == 0 %>
+    <center>
+      <p>Aún no hay noticias.</p>
+    </center>
+    <hr>
+  <% end %>
+
+  <div class="container">
+    <% @news.each do |news| %>
+      <div class="row">
+        <div class="col-md-3">
+        <div class="container">
+          <div class="well">
+            <div class="media">
+              <a class="pull-left" href="#">
+                <%= image_tag news.image.url, :size => "150x150"%>
+              </a>
+              <div class="media-body">
+                <h4 class="media-heading"><strong> <%= news.title %> </strong> </h4>
+                  <p class="text-right"><strong> Autor:</strong> <%= news.author %> </p>
+                  <p> <%= news.body %> </p>
+              </div>
+            </div>
+          </div>  
+          <div class="links">
+            <a href="">
+                <%= link_to 'Mostrar', news_path(news), :class => "linkText" %>
+            </a>
+            <% if current_user && current_user.superadmin_role? %>
+              <a href="">
+                  <%= link_to 'Editar', edit_news_path(news), :class => "linkText" %>
+              </a>
+              <a href="">
+                  <%= link_to 'Borrar', news_path(news), :class => "linkText", method: :delete, data: { confirm: 'Are you sure?'}%>
+              </a>
+            <% end %>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>

@@ -1,5 +1,4 @@
 
-
 <!-- BOTONES -->
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -19,7 +18,7 @@
   		 <li class="liNav"> <%= link_to 'Sucursales', { :controller => "/stores", :action => :index }, { :class=>('')}%></li>
 
       <% if current_user && current_user.superadmin_role? %>
-        <li class="liNav"> <%= link_to 'Categorias', { :controller => "/categories", :action => :index }, { :class=>('')}%></li>
+        <li class="liNav"> <%= link_to 'Categorías', { :controller => "/categories", :action => :index }, { :class=>('')}%></li>
       <% end %>
        
   		 
@@ -39,8 +38,8 @@
             <%= link_to('Edit registration', edit_user_registration_path) %>
           </li>-->
         
-          <li class="liNa">
-            <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>  
+          <li class="liNav">
+            <%= link_to('Cerrar sesión', destroy_user_session_path, :method => :delete) %>  
           </li>    
 
           
@@ -48,11 +47,11 @@
       <% else %>
 
         
-          <li class="liNa">
+          <li class="liNav">
             <%= link_to('Registro', new_user_registration_path)  %>
           </li>
         
-          <li class="liNa">
+          <li class="liNav">
             <%= link_to('Iniciar sesión', new_user_session_path)  %>
           </li>  
 
@@ -61,4 +60,3 @@
     </div>
   </div>
 </nav>
-

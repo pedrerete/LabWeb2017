@@ -40,7 +40,7 @@
                 <div class="thumbnail">
                     <%= image_tag product.image.thumb('300x300#').url%>
                     <div class="caption">
-                        <h3><%= product.productName %> - <%= number_to_currency  product.price %></h3>
+                        <p><%= product.productName %> - <%= number_to_currency  product.price %></p>
                         <% if product.category %>
                         <p>Categoría: <%= product.category.categoryName %></p>
                         <% end %>

@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :news
   resources :categories
   
-  resource :cart, only: [:show]
+  resource :cart, only: [:show, :new]
   resources :order_items, only: [:create, :update, :destroy]
 
   root 'products#index'

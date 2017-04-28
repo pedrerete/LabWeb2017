@@ -21,7 +21,7 @@
 		</div>
 		<div class="wrapper-right-products" align="center">
 			<div class="wrapper-img" align="center">
-			<%= image_tag @product.image.url, :size => "250x250"%>
+			<%= image_tag @product.image.thumb('300x300#').url%>
 			</div>
 		</div>
 		<br><%= link_to 'Volver a productos', products_path %>

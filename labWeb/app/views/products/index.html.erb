@@ -31,12 +31,13 @@
     <div class="row text-center">
         <% @products.each do |product| %>
             <%= form_for @order_item, remote: true do |f| %>
-
             <div class="col-md-3 col-sm-6 hero-feature">
                 <div class="thumbnail">
-                    <%= image_tag product.image.url, :size => "300x300"%>
+                    <%= image_tag product.image.thumb('300x300#').url%>
                     <div class="caption">
-                        <h3><%= product.productName %> - <%= number_to_currency  product.price %></h3>
+                        <div class="row">
+                            <%= product.productName %> - <%= number_to_currency  product.price %>
+                        </div>
                         <% if product.category %>
                         <p>Categoria: <%= product.category.categoryName %></p>
                         <% end %>

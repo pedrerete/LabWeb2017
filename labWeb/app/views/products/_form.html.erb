@@ -18,7 +18,7 @@
 	</p>
 
 	<p>
-		<%= f.label :Descripcion %><br>
+		<%= f.label :Descripción %><br>
 		<%= f.text_area :productDescription %>
 	</p>
 
@@ -29,16 +29,18 @@
 	
 	<%= image_tag @product.image.thumb('300x300#').url if @product.image_stored?%>
 
+
 	<p>
-		<%= f.label :image %><br>
+		<%= f.label :Imagen %><br>
 		<%= f.file_field :image %>
 	</p>
 
 	<p>
+		<%= f.label :Categoría%><br>
 		<%= select_tag(:category,  options_from_collection_for_select(Category.all, :id, :categoryName) )%>
 	</p>
-
+	<br>
 	<p>
-		<%= f.submit %>
+		<%= f.submit "Agregar", :class => "addBtn"%>
 	</p>
 <% end %>

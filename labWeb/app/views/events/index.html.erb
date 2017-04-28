@@ -1,55 +1,56 @@
-<center>
-<h1>Eventos</h1>
-</center>
-
-<% if current_user && current_user.superadmin_role? %>
-  <center>
-  <%= link_to 'Agregar evento', new_event_path %>
-  </center>
-  <hr>
-<% end %>
-
-<% if @events.size == 0 %>
-  <center>
-    <p>Nada por aquí</p>
-  </center>
-  <hr>
-<% end %>
-
 <div class="container">
-  <% @events.each do |evento| %>
-    <div class="row">
-      <div class="col-md-3">
-      <div class="container">
-        <div class="well">
-          <div class="media">
-            <a class="pull-left" href="#">
-              <%= image_tag evento.image.url, :size => "150x150"%>
-            </a>
-            <div class="media-body">
-              <h4 class="media-heading"> <%= evento.title %> </h4>
-                <p class="text-right"> <%= evento.date %> </p>
-                <p> <%= evento.body %> </p>
-            </div>
-          </div>
-        </div>  
-        <div class="links">
-          <a href="">
-              <%= link_to 'Show', event_path(evento) %>
-          </a>
-          <% if current_user && current_user.superadmin_role? %>
+  <h1 class="show-title">Eventos</h1>
+  <hr>
 
-            <a href="">
-                <%= link_to 'Edit', edit_event_path(evento) %>
-            </a>
-            <a href="">
-                <%= link_to 'Destroy', event_path(evento), method: :delete, data: { confirm: 'Are you sure?'}%>
-            </a>
-          <% end %>
-        </div>
-      </div>
-      <hr>
-    </div>
-  </div>
+  <% if current_user && current_user.superadmin_role? %>
+    <center>
+    <%= link_to 'Agregar evento', new_event_path, :class => "linkText" %>
+    </center>
+    <hr>
   <% end %>
+
+  <% if @events.size == 0 %>
+    <center>
+      <p style="font-size:20px;">Aún no hay ningún evento.</p>
+    </center>
+    <hr>
+  <% end %>
+
+  <div class="container">
+    <% @events.each do |evento| %>
+      <div class="row">
+        <div class="col-md-3">
+        <div class="container">
+          <div class="well">
+            <div class="media">
+              <a class="pull-left" href="#">
+                <%= image_tag evento.image.url, :size => "150x150"%>
+              </a>
+              <div class="media-body">
+                <h4 class="media-heading"> <strong><%= evento.title %></strong> </h4>
+                  <p class="text-right"><strong>Fecha:</strong> <%= evento.date %> </p>
+                  <p align="justify"> <%= evento.body %> </p>
+              </div>
+            </div>
+          </div>  
+          <div class="links">
+            <a href="">
+                <%= link_to 'Mostrar', event_path(evento), :class => "linkText"  %>
+            </a>
+            <% if current_user && current_user.superadmin_role? %>
+
+              <a href="">
+                  <%= link_to 'Editar', edit_event_path(evento), :class => "linkText"  %>
+              </a>
+              <a href="">
+                  <%= link_to 'Borrar', event_path(evento), :class => "linkText", method: :delete, data: { confirm: 'Are you sure?'}%>
+              </a>
+            <% end %>
+          </div>
+        </div>
+        <hr>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>

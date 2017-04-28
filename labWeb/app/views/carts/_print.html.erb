@@ -1,0 +1,70 @@
+<script>
+   function printDiv(divName) {
+       var printContents = document.getElementById(divName).innerHTML;
+       w=window.open();
+       w.document.write(printContents);
+       w.print();
+       w.close();
+   }
+</script>
+
+<div id="print-content">
+    <div id="confirmacion">
+        <div class="container">
+            <div class="row">
+                <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6">
+                            <address>
+                                <strong>Rogelio Bicicletas</strong>
+                                <br>
+                                2135 Numero direccion
+                                <br>
+                                Ciudad, MEX 64970
+                                <br>
+                                <abbr title="Telefono">T:</abbr> (521) 484-6829
+                            </address>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+                            <p>
+                                <em id="date"></em>
+                                <script>
+                                  document.getElementById("date").innerHTML = Date();
+                              </script>
+                          </p>
+                          <p>
+                            <em>Receipt #: <%= current_order.id %></em>
+                        </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="text-center">
+                        <h1>Receipt</h1>
+                    </div>
+                </span>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th class="text-center">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <% @order_items.each do |order_item| %>
+                            <%= render 'carts/print_row', product: order_item.product, order_item: order_item, show_total: true %>
+                            <% end %>
+                        </tr>
+                        <tr>
+                            <td class="text-right"><h4><strong>Total: </strong></h4></td>
+                            <td class="text-center text-danger"><h4><strong><%= number_to_currency current_order.subtotal%></strong></h4></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button type="button" onclick="printDiv('print-content')" class="btn btn-success btn-lg btn-block" value="print a div!">
+                    Imprimir   <span class="glyphicon glyphicon-chevron-right"></span>
+                </button></td>
+            </div>
+        </div>
+    </div>
+</div>

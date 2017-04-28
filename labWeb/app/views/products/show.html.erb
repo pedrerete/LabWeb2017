@@ -1,20 +1,20 @@
-<center>
-	<h1 align="center">
-		<%= @product.productName %>
-	</h1><br>
-	<div class="wrapper-products">
-		<div class="wrapper-left-products">
-			<p align="justify">
-				<strong>Descripción:</strong>
-				<%= @product.productDescription %>
-			</p>
-			
-			<p align="justify">
+<div class="container">
+		<center>
+		<h1 class="show-title">
+			<%= @product.productName %> <small>Productos</small>
+		</h1><hr>
+		<div class="wrapper">
+			<div class="wrapper-left">
+				<p align="justify">
+					<strong>Descripción: </strong> <%= @product.productDescription %>
+				</p>
+
+				<p align="left">
 				<strong>Categoria: </strong>
 				<%= @product.category.categoryName %>
-			</p>
+				</p>
 
-			<p align="left">
+				<p align="left">
 				<strong>Precio:</strong>
 				$<%= @product.price %> MXN
 			</p>
@@ -24,6 +24,8 @@
 			<%= image_tag @product.image.thumb('300x300#').url%>
 			</div>
 		</div>
-		<br><%= link_to 'Volver a productos', products_path %>
-	</div>
-</center>
+		<br>
+		</center>
+</div><br>
+<center>	<%= link_to 'Volver a productos', products_path, :class => "linkText"  %></center>
+

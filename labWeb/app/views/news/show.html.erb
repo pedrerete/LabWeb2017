@@ -1,23 +1,27 @@
-<center>
-	<h1 align="center">
-		<%= @news.title %>
-	</h1><br>
-	<div class="wrapper-news">
-		<div class="wrapper-left-news">
-			<p align="justify">
-				<%= @news.body %>
-			</p>
+<div class="container">
+		<center>
+		<h1 class="show-title">
+			<%= @news.title %> <small>Noticias</small>
+		</h1><hr>
+		<div class="wrapper">
+			<div class="wrapper-left">
+				<p align="justify">
+					<%= @news.body %>
+				</p>
 
-			<p align="left">
-				<strong>Autor:</strong>
-				<%= @news.author %>
-			</p>
-		</div>
-		<div class="wrapper-right-news" align="center">
-			<div class="wrapper-img" align="center">
-			<%= image_tag @news.image.url, :size => "250x250"%>
+				<p align="left">
+					<strong>Autor:</strong>
+					<%= @news.author %>
+				</p>
+			</div>
+			<div class="wrapper-right" align="center">
+				<div class="wrapper-img" align="center">
+				<%= image_tag @news.image.url, :size => "350x350"%>
+				</div>
 			</div>
 		</div>
-	</div>
-	<br><%= link_to 'Volver a noticias', news_index_path %>
-</center>
+		<br>
+		</center>
+</div><br>
+<center>	<%= link_to 'Volver a noticias', news_index_path, :class => "linkText"  %></center>
+

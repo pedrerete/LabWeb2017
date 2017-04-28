@@ -1,23 +1,26 @@
-<center>
-	<h1 align="center">
-		<%= @event.title %>
-	</h1><br>
-	<div class="wrapper-news">
-		<div class="wrapper-left-news">
-			<p align="justify">
-				<%= @event.body %>
-			</p>
+<div class="container">
+		<center>
+		<h1 class="show-title">
+			<%= @event.title %> <small>Eventos</small>
+		</h1><hr>
+		<div class="wrapper">
+			<div class="wrapper-left">
+				<p align="justify">
+					<%= @event.body %>
+				</p>
 
-			<p align="left">
-				<strong>Fecha:</strong>
-				<%= @event.date %>
-			</p>
-		</div>
-		<div class="wrapper-right-news" align="center">
-			<div class="wrapper-img" align="center">
-			<%= image_tag @event.image.url, :size => "250x250"%>
+				<p align="left">
+					<strong>Fecha:</strong>
+					<%= @event.date %>
+				</p>
+			</div>
+			<div class="wrapper-right" align="center">
+				<div class="wrapper-img" align="center">
+				<%= image_tag @event.image.url, :size => "350x350"%>
+				</div>
 			</div>
 		</div>
-	</div>
-	<br><%= link_to 'Volver a eventos', events_path %>
-</center>
+		<br>
+		</center>
+</div><br>
+<center>	<%= link_to 'Volver a eventos', events_path, :class => "linkText"  %></center>

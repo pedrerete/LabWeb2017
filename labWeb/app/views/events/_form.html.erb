@@ -13,7 +13,7 @@
     <% end %>
 
 	<p>
-		<%= f.label :Titulo %><br>
+		<%= f.label :Título %><br>
 		<%= f.text_field :title %>
 	</p>
 
@@ -27,14 +27,14 @@
 		<%= f.date_field :date %>
 	</p>
 
-	<%= image_tag @event.image.url if @event.image_stored? %>
+	<%= image_tag @event.image.url, :size => "250x250" if @event.image_stored? %>
 	
 	<p>
-		<%= f.label :image %><br>
+		<%= f.label :imagen %><br>
 		<%= f.file_field :image %>
 	</p>
-	
+	<br>
 	<p>
-		<%= f.submit %>
+		<%= f.submit "Agregar", :class => "addBtn"%>
 	</p>
 <% end %>

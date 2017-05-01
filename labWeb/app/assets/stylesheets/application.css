@@ -132,12 +132,6 @@ header {
   background-color: #AF0F0F;
 }
 
-footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-}
-
-
 .wrapper {
     width: 100%;
     overflow: hidden;
@@ -269,6 +263,8 @@ p, .linkText{
   font-size: 19px;
 }
 
-.navbar-header {
+.navbar-brand {
     text-align: center;
+    padding: 0;
+    padding-left: 15px;
 }

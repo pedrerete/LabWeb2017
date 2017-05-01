@@ -13,11 +13,11 @@
           </div>
           <div class="col-xs-8 text-right">
             <div class="btn-group">
-              <%= link_to "Delete", order_item, { data: { confirm: "Are you sure you wish to delete the product '#{order_item.product.productName}' from your cart?" }, method: :delete, remote: true, class: "btn btn-danger" } %>
+              <%= link_to "Eliminar", order_item, { data: { confirm: "¿Estás seguro que quieres eliminar '#{order_item.product.productName}' de tu carrito?" }, method: :delete, remote: true, class: "btn btn-danger" } %>
             </div>
           </div>
         </div>
-        <h4 class="text-right">Total Price: <span style="color: green"><%= number_to_currency order_item.total_price %></span></h4>
+        <h4 class="text-right">Precio Total: <span style="color: green"><%= number_to_currency order_item.total_price %></span></h4>
       <% end %>
     </div>
 

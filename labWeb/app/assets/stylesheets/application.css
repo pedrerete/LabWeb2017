@@ -24,20 +24,22 @@
 	background-color: #ffffff;
   position: relative;
   margin: 0;
-  padding-bottom: 6rem;
+  padding: 0;
   min-height: 100%;
   color: #666;
   font-family: 'Roboto', sans-serif;
  }
+
 .footer{
   background-color: #f2f2f2;
-  position: absolute;
+  position: fixed;
   right: 0;
   bottom: 0;
   left: 0;
   padding: 1rem;
   text-align: center;
   }
+
 .footerText{
   margin: 0;
 }
@@ -160,7 +162,6 @@ footer {
   margin: auto;
 }
 .form {
-  position: relative;
   z-index: 1;
   background: #FFFFFF;
   max-width: 480px;
@@ -266,4 +267,8 @@ form .loginBtn {
 
 p, .linkText{
   font-size: 19px;
+}
+
+.navbar-header {
+    text-align: center;
 }

@@ -45,8 +45,10 @@
                         <p>Categoría: <%= product.category.categoryName %></p>
                         <% end %>
                         <div class="input-group-btn">
-                            <%= f.hidden_field :product_id, value: product.id %>
-                            <%= f.submit "Agregar al carrito    ", class: "btn btn-primary" %>
+                            <% if current_user %>
+                                <%= f.hidden_field :product_id, value: product.id %>
+                                <%= f.submit "Agregar al carrito    ", class: "btn btn-primary" %>
+                            <% end %>
                           </div>
                             <a href="">
                                 <%= link_to 'Mostrar ', product_path(product), :class => "linkText" %>

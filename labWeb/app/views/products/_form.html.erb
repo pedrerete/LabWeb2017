@@ -26,8 +26,7 @@
 		<%= f.label :Precio %><br>
 		<%= f.number_field :price %>
 	</p>
-	
-	<%= image_tag @product.image.thumb('300x300#').url if @product.image_stored?%>
+	<%= image_tag @product.image.url, :size => "300x300" if @product.image_stored? %>
 
 
 	<p>

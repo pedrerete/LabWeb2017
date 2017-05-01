@@ -1,25 +1,27 @@
 <div class="col-sm-offset-4 col-sm-4 centered">
   <div class="form-page">
     <div class="form">
+      <div class="img-responsive">
       <%= image_tag("rogerBikes.png", :alt => "Logo", size: "100x100") %>
+      </div>
       <h2>Iniciar Sesión</h2>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <div class="field">
+        <div class="form-group">
             <%= f.label :email, :class => "formLabel" %><br />
             <%= f.email_field :email, autofocus: true %>
         </div>
-        <div class="field">
+        <div class="form-group">
             <%= f.label :contraseña, :class => "formLabel" %><br />
             <%= f.password_field :password, autocomplete: "off" %>
         </div>
         <% if devise_mapping.rememberable? -%>
-          <div class="field">
+          <div class="form-group">
             <%= f.check_box :remember_me%>
             <%= f.label :recuérdame, :class => "formLabel"%>          
           </div>
         <% end -%>
         <div class="actions">
-            <%= f.submit "Iniciar Sesión", :class => "loginBtn"%>
+            <%= f.submit "Iniciar Sesión", :class => "btn btn-default loginBtn"%>
         </div>
       <% end %>
       <%= render "users/shared/links" %>

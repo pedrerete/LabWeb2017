@@ -19,12 +19,12 @@
 
 	<p>
 		<%= f.label :Texto %><br>
-		<%= f.text_area :body %>
+		<%= f.text_area :body, size: "35x6" %>
 	</p>
 
 	<p>
 		<%= f.label :Fecha %><br>
-		<%= f.date_field :date %>
+		<%= f.date_field :date, placeholder: "YYYY-MM-DD" %>
 	</p>
 
 	<%= image_tag @event.image.url, :size => "250x250" if @event.image_stored? %>

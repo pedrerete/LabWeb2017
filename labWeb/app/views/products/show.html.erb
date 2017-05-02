@@ -3,8 +3,8 @@
 		<h1 class="show-title">
 			<%= @product.productName %> <small>Productos</small>
 		</h1><hr>
-		<div class="wrapper">
-			<div class="wrapper-left">
+		<div class="row">
+			<div class="col-md-8">
 				<p align="justify">
 					<strong>Descripción: </strong> <%= @product.productDescription %>
 				</p>
@@ -19,7 +19,7 @@
 				$<%= @product.price %>0 MXN
 			</p>
 		</div>
-		<div class="wrapper-right-products" align="center">
+		<div class="col-md-4" align="center">
 			<div class="wrapper-img img-responsive" align="center">
 			<%= image_tag @product.image.url, :size => "300x300"%>
 			</div>
